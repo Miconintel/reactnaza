@@ -5,32 +5,33 @@ const ExpenseForm = (props) => {
   //  THIS EXAMPLE ID FOR OBJECT STATES
 
   // const [formStates, setForms] = useState({
-  //     title:'',
-  //     amount:'',
-  //     date:''
-
-  // })
-  // const titleHandler = (e)=>{
-  //     setForms({
-  //         ...formStates,
-  //         title:e.target.value
-  //     })
-  // console.log(e.target.value)
-  // }
-  // const amountHandler = (e)=>{
-  //     setForms({
-  //         ...formStates,
-  //         amount:e.target.value
-  //     })
-  // console.log(e.target.value)
-  // }
-  // const dateHandler = (e)=>{
-  //     setForms({
-  //         ...formStates,
-  //         date:e.target.value
-  //     })
-  // console.log(e.target.value)
-  // }
+  //   title: "",
+  //   amount: "",
+  //   date: "",
+  // });
+  // const titleHandler = (e) => {
+  //   setForms((formStates) => {
+  //     return {
+  //       ...formStates,
+  //       title: e.target.value,
+  //     };
+  //   });
+  //   console.log(e.target.value);
+  // };
+  // const amountHandler = (e) => {
+  //   setForms({
+  //     ...formStates,
+  //     amount: e.target.value,
+  //   });
+  //   console.log(e.target.value);
+  // };
+  // const dateHandler = (e) => {
+  //   setForms({
+  //     ...formStates,
+  //     date: e.target.value,
+  //   });
+  //   console.log(e.target.value);
+  // };
 
   // VERY IMPROTANT!! you can write out same propeties in one object, but the last propety will be the one taking and the object wont show 2 properties with 2 values
   /* for this reason we will be saving an object i the state variable and when we want to reassign the object individual values, we 
@@ -63,49 +64,45 @@ appear in one object*/
 
   const titleHandler = (e) => {
     setEnteredTitle(e.target.value);
-    console.log(e.target.value,enteredTitle);
+    console.log(e.target.value, enteredTitle);
   };
   const amountHandler = (e) => {
     setEnteredAmount(e.target.value);
-    console.log(e.target.value,enteredAmount);
+    console.log(e.target.value, enteredAmount);
   };
   const dateHandler = (e) => {
     setEnteredDate(e.target.value);
-    console.log(e.target.value,enteredDate);
+    console.log(e.target.value, enteredDate);
   };
 
-  const submitHAndler=(e)=>{
-    e.preventDefault()
+  const submitHAndler = (e) => {
+    e.preventDefault();
 
     const expenseData = {
-        title:enteredTitle,
-        amount:enteredAmount,
-        date:new Date(enteredDate)
-    }
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
+    };
 
-    props.onSaveData(expenseData)    
-    setEnteredDate('')
-    setEnteredAmount('')
-    setEnteredTitle('')
-   
+    props.onSaveData(expenseData);
+    setEnteredDate("");
+    setEnteredAmount("");
+    setEnteredTitle("");
+
     // console.log(expenseData)
-   
-  }
+  };
 
   return (
     <form onSubmit={submitHAndler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input 
-           type="text"
-           value = {enteredTitle}
-           onChange={titleHandler} />
+          <input type="text" value={enteredTitle} onChange={titleHandler} />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
           <input
-            value= {enteredAmount}
+            value={enteredAmount}
             type="number"
             min="0.01"
             step="0.01"
@@ -115,7 +112,7 @@ appear in one object*/
         <div className="new-expense__control">
           <label>Date</label>
           <input
-            value= {enteredDate}
+            value={enteredDate}
             type="date"
             min="2019-01-01"
             max="2022-12-31"
