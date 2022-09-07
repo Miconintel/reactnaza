@@ -47,7 +47,7 @@ appear in one object*/
   //   console.log(`${state} on load`);
   //   const titleHandler = (e) => {
 
-  //     setState(state + 1);
+  //     setState(state + 1); state state forces a reload on the screen
   //     setState(state + 1);
   //     console.log(`${state} after`);
   //   };
